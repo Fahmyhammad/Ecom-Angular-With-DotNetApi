@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg custom-navbar">
+  <div class="container">
+    <a routerLink="/" class="navbar-brand d-flex align-items-center">
+      <img src="./favicon.ico" class="logo" alt="Logo" />
+      <span class="brand-text">E-Commerce</span>
+    </a>
+
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a routerLink="/Home" routerLinkActive="active"
+           [routerLinkActiveOptions]="{exact:true}"
+          class="nav-link">Home</a></li>
+        <li class="nav-item"><a routerLink="/shop" routerLinkActive="active" class="nav-link">Shopping</a></li>
+        <li class="nav-item"><a routerLink="/" class="nav-link">About Us</a></li>
+        <li class="nav-item"><a routerLink="/" class="nav-link">Best Seller</a></li>
+      </ul>
+
+      <form class="form-inline search-form mx-auto">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search...">
+          <div class="input-group-append">
+            <button class="btn btn-search"><i class="material-icons">search</i></button>
+          </div>
+        </div>
+      </form>
+
+      <ul class="navbar-nav ml-auto align-items-center">
+        <li class="nav-item">
+          <a routerLink="/" class="nav-link">
+            <i class="material-icons">shopping_cart</i>
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a (click)="ToggleDropDown()" class="nav-link dropdown-toggle" id="userDropdown" data-toggle="dropdown">
+            <i class="material-icons">account_circle</i>
+          </a>
+          <div [ngClass]="{'show':visibale}" class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item">Register <i class="fa fa-user-plus"></i></a>
+            <a class="dropdown-item">Login <i class="fa fa-sign-in"></i></a>
+            <a class="dropdown-item">My Order <i class="fa fa-list"></i></a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

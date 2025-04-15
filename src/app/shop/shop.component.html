@@ -1,0 +1,81 @@
+<div class="row">
+  <!-- Sidebar -->
+  <section class="col-md-3">
+    <div class="sidebar p-3 shadow-sm rounded bg-white">
+      <h4 class="section-title mb-3">Sorting</h4>
+      <div class="custom-select-wrapper mb-4">
+        <select
+          #SortSelected
+          class="form-select"
+          id="sortSelect"
+          (change)="SortByPrice($event)"
+        >
+          @for (item of SortingOption; track $index) {
+          <option [value]="item.value">{{ item.name }}</option>
+          }
+        </select>
+      </div>
+
+      <h4 class="section-title mb-3">Categories</h4>
+      <ul class="list-group custom-list-group mb-4">
+        @for (item of category; track $index) {
+        <li
+          [class.active]="item.id == ProductParam.CategoryId"
+          (click)="SeletedId(item.id)"
+          class="list-group-item custom-list-item"
+        >
+          {{ item.name }}
+        </li>
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- Main content -->
+  <section class="col-md-9">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div class="paging-container">
+        <span class="text-dark">Showing {{product.length}} of {{ProductParam.PageNumber*ProductParam.PageSize}}</span>
+      </div>
+
+      <div class="search-container">
+        <div class="input-group search-bar">
+          <input
+            #search
+            (keyup)="OnSearch(search.value)"
+            (keyup.enter)="OnSearch(search.value)"
+            type="text"
+            class="form-control"
+            placeholder="Search ..."
+          />
+          <input
+            (click)="OnSearch(search.value)"
+            type="button"
+            class="btn btn-danger"
+            value="Search"
+          />
+          <input
+            (click)="ResetValue()"
+            type="button"
+            class="btn btn-dark"
+            value="Reset"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="product-grid">
+      @for (item of product; track $index) {
+      <ng-container>
+        <app-shop-item [Product]="item"></app-shop-item>
+      </ng-container>
+      }
+    </div>
+    <div class="d-flex justify-content-center align-items-center mt-5">
+      <app-pagnation [PageSize]="ProductParam.PageSize"
+        [TotalCount]="TotalCount"
+        (ChangePage)="OnChangePage($event)"
+      ></app-pagnation>
+    </div>
+  </section>
+</div>

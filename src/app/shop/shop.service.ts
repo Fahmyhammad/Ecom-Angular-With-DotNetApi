@@ -34,6 +34,9 @@ export class ShopService {
   getCategoty() {
     return this.http.get<ICategort[]>(this.baseURL+"Categories/get-all");
   }
+  getproductDetails(id:number){
+    return this.http.get<IProduct>(this.baseURL+"Products/get-by-id/"+id)
+  }
  
 
 }

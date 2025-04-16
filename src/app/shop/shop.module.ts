@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { RouterModule } from '@angular/router';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
+import { ShopRoutingModule } from './shop-routing.module';
 
 
 
@@ -17,12 +18,13 @@ import { NgxImageZoomModule } from 'ngx-image-zoom';
   ],
   imports: [
     CommonModule,
+    ShopRoutingModule,
     SharedModule,
     RouterModule,
     NgxImageZoomModule
   ],
   exports:[
-    ShopComponent
+    //ShopComponent
   ]
 })
 export class ShopModule { }

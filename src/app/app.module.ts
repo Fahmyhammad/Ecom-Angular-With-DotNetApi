@@ -10,17 +10,17 @@ import { SharedModule } from './shared/shared.module';
 import { provideHttpClient } from '@angular/common/http';
 import { ShopModule } from './shop/shop.module';
 import { HomeComponent } from './home/home.component';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule ,
-    ShopModule
+    HomeModule
   ],
   providers: [
     provideClientHydration(withEventReplay()),

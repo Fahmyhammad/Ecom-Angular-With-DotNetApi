@@ -13,19 +13,23 @@ export class ProductDetailsComponent implements OnInit {
    constructor(private shopService:ShopService,private route:ActivatedRoute){}
 
    poduct:IProduct
+   mainImage:string;
 
   ngOnInit(): void {
     this.loadProduct()
     }
-
   loadProduct(){
     this.shopService.getproductDetails(parseInt(this.route.snapshot.paramMap.get('id')))
     .subscribe({
       next:((value:IProduct)=>{
         this.poduct=value
+        this.mainImage = this.poduct.photos[0].imageName
       })
-    })
-    
+    }) 
+  }
+
+  ReplaceImage(src:string){
+    this.mainImage = src
   }
 
 }

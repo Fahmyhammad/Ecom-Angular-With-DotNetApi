@@ -3,23 +3,18 @@
     <div class="col-md-5">
       <div class="main-img">
      <lib-ngx-image-zoom
-     [thumbImage]="'https://localhost:44314/'+poduct.photos[0].imageName"
-     [fullImage]="'https://localhost:44314/'+poduct.photos[0].imageName"
+     [thumbImage]="'https://localhost:44314/'+ mainImage"
+     [fullImage]="'https://localhost:44314/'+mainImage"
      [magnification]="1.3"
      [enableScrollZoom]="true"
      [lensWidth]="200"
      [lensHeight]="200"
      [enableLens]="true"
      > </lib-ngx-image-zoom>
-        <!-- <img
-          class="img-fluid"
-          src="https://localhost:44314/{{poduct.photos[0].imageName}}"
-          alt="ProductS"
-        /> -->
         <div class="row my-3 previews">
             @for (item of poduct.photos; track $index) {
           <div class="col-md-3">
-            <img
+            <img (click)="ReplaceImage(item.imageName)"
               class="w-100"
               src="https://localhost:44314/{{item.imageName}}"
               alt="Sale"
@@ -40,7 +35,7 @@
             <del>{{poduct.oldPrice| currency }}</del>
             <span class="old-price-discount text-danger">(20% off)</span>
           </p>
-          <p class="new-price text-bold mb-1">{{poduct.newPrice|currency}}>
+          <p class="new-price text-bold mb-1">{{poduct.newPrice|currency}}></p>
           
           <p class="text-secondary mb-1">quantity : 1</p>
           <div>

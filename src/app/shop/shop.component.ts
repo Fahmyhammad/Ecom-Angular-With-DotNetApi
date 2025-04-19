@@ -4,6 +4,7 @@ import { IPagnation } from '../shared/Models/Pagnation';
 import { IProduct } from '../shared/Models/Product';
 import { ICategort } from '../shared/Models/Category';
 import { ProductParam } from '../shared/Models/ProductParam';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-shop',
@@ -12,7 +13,7 @@ import { ProductParam } from '../shared/Models/ProductParam';
   styleUrl: './shop.component.scss',
 })
 export class ShopComponent implements OnInit {
-  constructor(private shopService: ShopService) {}
+  constructor(private shopService: ShopService,private _toast:ToastrService) {}
 
   product: IProduct[];
   category: ICategort[];
@@ -34,6 +35,7 @@ export class ShopComponent implements OnInit {
           this.TotalCount=valu.totalCount
           this.ProductParam.PageNumber=valu.pageNumber
           this.ProductParam.PageSize=valu.pageSize
+          this._toast.success("product Loaded Successfully","SUCCESS")
         },
       });
   }

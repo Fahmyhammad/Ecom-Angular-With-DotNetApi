@@ -9,11 +9,11 @@ import { IPagnation } from './shared/Models/Pagnation';
   standalone: false,
   styleUrl: './app.component.scss',
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   constructor() {}
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+  // ngOnInit(): void {
+  //   throw new Error('Method not implemented.');
+  // }
 
   title = 'client';
 }

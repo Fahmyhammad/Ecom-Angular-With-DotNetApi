@@ -9,6 +9,9 @@ const routes: Routes = [
   {path:'shop', loadChildren : ()=> import('./shop/shop.module')
     .then(x=>x.ShopModule)
   },
+  {path:'basket', loadChildren : ()=> import('./basket/basket.module')
+    .then(x=>x.BasketModule)
+  },
   {path:'**',redirectTo:'',pathMatch:'full'}
 ];
 

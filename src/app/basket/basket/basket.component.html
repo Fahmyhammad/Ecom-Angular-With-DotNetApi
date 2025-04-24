@@ -22,7 +22,7 @@
             <td>
               <a
                 class="text-dark text-decoration-none"
-                [routerLink]="['/shop/Product-details', item?.id]"
+                [routerLink]="['/shop/Product-details/', item?.id]"
               >
                 {{ item?.name }}
               </a>
@@ -57,5 +57,8 @@
         </tbody>
       </table>
     </div>
+  </div>
+  <div class="order-summary-container">
+    <app-order-total></app-order-total>
   </div>
 </div>

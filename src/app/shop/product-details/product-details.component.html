@@ -33,17 +33,17 @@
         <div class="price-area my-4">
           <p class="old-price mb-1">
             <del>{{poduct.oldPrice| currency }}</del>
-            <span class="old-price-discount text-danger">(20% off)</span>
+            <span class="old-price-discount text-danger">({{calucateDiscount(poduct.oldPrice,poduct.newPrice)}}% off)</span>
           </p>
           <p class="new-price text-bold mb-1">{{poduct.newPrice|currency}}</p>
           
-          <p class="text-secondary mb-1">quantity : 1</p>
+          <p class="text-secondary mb-1">quantity : {{quantity}}</p>
           <div>
-            <button class="btn btn-danger text-white">
+            <button (click)="DecrementBasket()" class="btn btn-danger text-white">
               <i class="fa fa-minus"></i>
             </button>
             &nbsp;
-            <button class="btn btn-dark text-white">
+            <button (click)="incrementBasket()" class="btn btn-dark text-white">
               <i class="fa fa-plus"></i>
             </button>
           </div>
@@ -57,13 +57,13 @@
             >
           </div>
           <div class="block pt-2">
-            <button class="shadow btn custom-btn">
+            <button (click)="AddToBasket()" class="shadow btn custom-btn">
               <i class="fa fa-shopping-cart"></i>
               Add to cart
             </button>
           </div>
           <div class="block pt-2">
-            <button class="shadow btn custom-btn">
+            <button routerLink="/Shopping" class="shadow btn custom-btn">
               <i class="fa fa-"></i>
               Shopping
             </button>
